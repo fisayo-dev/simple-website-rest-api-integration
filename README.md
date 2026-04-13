@@ -1,5 +1,5 @@
 # Simple Website - HTML, CSS & JAVASCRIPT
  
-This project is a simple implementation of a REST API I built. It can be found [here](https://github.com/fisayo-dev/simple-nodejs-api).
+This project is a simple implementation of a REST API I built. It can be found [here](https://github.com/fisayo-dev/simple-nodejs-server).
 
 > Built during my Internship at Codveda Technologies.
