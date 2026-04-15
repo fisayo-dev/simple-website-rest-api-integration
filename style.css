@@ -1,0 +1,28 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Geom";
+}
+
+body {
+  background-color: rgb(240, 244, 248);
+  display: grid;
+  margin: 50px 0;
+}
+
+.card {
+  background-color: rgb(187, 223, 247);
+  padding: 10px 20px;
+  margin: 10px auto;
+  width: 40%;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.products-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2;
+  margin: 20px 0;
+}
