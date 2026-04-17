@@ -1,18 +1,149 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Simple Website (with REST API integration)</title>
-        <link rel="stylesheet" href="./style.css" />
-    </head>
-    <body>
-        <div class="card">
-            <h1>Product Lists</h1>
-            <div class="products-list">
-                                    
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Management System</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-content">
+          <h1 class="logo">📦 Products</h1>
+          <div class="header-actions">
+            <button id="addProductBtn" class="btn btn-primary btn-lg">
+              + Add Product
+            </button>
+            <button
+              id="deleteAllBtn"
+              class="btn btn-danger"
+              title="Delete all products"
+            >
+              🗑️ Clear All
+            </button>
+          </div>
         </div>
-        <script type="text/javascript" src="./app.js"></script>
-    </body>
+      </header>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="spinner hidden"></div>
+
+        <!-- Empty State -->
+        <div id="emptyState" class="empty-state hidden">
+          <div class="empty-icon">📭</div>
+          <h2>No Products Yet</h2>
+          <p>Start by adding your first product to get started.</p>
+          <button id="emptyAddBtn" class="btn btn-primary">
+            Add Your First Product
+          </button>
+        </div>
+
+        <!-- Products Grid -->
+        <div id="productsList" class="products-grid"></div>
+      </main>
+
+      <!-- Add/Edit Product Modal -->
+      <div id="productModal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 id="modalTitle">Add New Product</h2>
+            <button id="closeModalBtn" class="btn-close">&times;</button>
+          </div>
+
+          <form id="productForm" class="product-form">
+            <div class="form-group">
+              <label for="productName">Product Name *</label>
+              <input
+                type="text"
+                id="productName"
+                required
+                placeholder="Enter product name"
+              />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="productPrice">Price ($) *</label>
+                <input
+                  type="number"
+                  id="productPrice"
+                  required
+                  step="0.01"
+                  placeholder="0.00"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="productCategory">Category</label>
+                <input
+                  type="text"
+                  id="productCategory"
+                  placeholder="e.g., Electronics"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="productDescription">Description</label>
+              <textarea
+                id="productDescription"
+                placeholder="Enter product description"
+                rows="3"
+              ></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="productColor">Color</label>
+                <input
+                  type="text"
+                  id="productColor"
+                  placeholder="e.g., Red, Blue"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="productHeight">Height (cm)</label>
+                <input
+                  type="number"
+                  id="productHeight"
+                  step="0.1"
+                  placeholder="0.0"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="productWidth">Width (cm)</label>
+                <input
+                  type="number"
+                  id="productWidth"
+                  step="0.1"
+                  placeholder="0.0"
+                />
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" id="cancelBtn" class="btn btn-secondary">
+                Cancel
+              </button>
+              <button type="submit" id="submitBtn" class="btn btn-primary">
+                Save Product
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Toast Notification -->
+      <div id="toast" class="toast hidden"></div>
+    </div>
+
+    <script type="text/javascript" src="./app.js"></script>
+  </body>
 </html>
